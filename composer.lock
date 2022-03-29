@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40a089a0e3df83033c687c7624909a01",
+    "content-hash": "da238ee5720cec93c3613a4d8310d196",
     "packages": [
         {
             "name": "brick/math",
@@ -481,6 +481,60 @@
                 }
             ],
             "time": "2021-10-11T09:18:27+00:00"
+        },
+        {
+            "name": "ejarnutowski/laravel-api-key",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ejarnutowski/laravel-api-key.git",
+                "reference": "81ac0a4732d1a6b515f2d8ea6f4419aed7451393"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ejarnutowski/laravel-api-key/zipball/81ac0a4732d1a6b515f2d8ea6f4419aed7451393",
+                "reference": "81ac0a4732d1a6b515f2d8ea6f4419aed7451393",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "dont-discover": [
+                        "ejarnutowski/laravel-api-key"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ejarnutowski\\LaravelApiKey\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elliott Jarnutowski",
+                    "email": "e@jarno.co"
+                }
+            ],
+            "description": "Authorize requests to your Laravel application with API keys",
+            "keywords": [
+                "Api Key",
+                "Authentication",
+                "api",
+                "authorization",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/ejarnutowski/laravel-api-key/issues",
+                "source": "https://github.com/ejarnutowski/laravel-api-key/tree/master"
+            },
+            "time": "2019-09-16T20:19:02+00:00"
         },
         {
             "name": "evilfreelancer/routeros-api-php",

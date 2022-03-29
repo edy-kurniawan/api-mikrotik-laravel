@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\HotspotController;
 */
 
 // Route group for HostpotController
+// Route::group(['middleware' => 'auth.apikey', 'prefix' => 'ip/hotspot'], function () {
 Route::group(['prefix' => 'ip/hotspot'], function () {
     // get all users hotspot
     Route::get('/users', [HotspotController::class, 'getAllUsers']);
