@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\HotspotController;
 // Route group for HostpotController
 // Route::group(['middleware' => 'auth.apikey', 'prefix' => 'ip/hotspot'], function () {
 Route::group(['prefix' => 'ip/hotspot'], function () {
+//users
     // get all users hotspot
     Route::get('/users', [HotspotController::class, 'getAllUsers']);
 
@@ -31,5 +32,15 @@ Route::group(['prefix' => 'ip/hotspot'], function () {
 
     // add user hotspot
     Route::post('/users', [HotspotController::class, 'addUser']);
+
+    // edit user hotspot
+    Route::put('/users/{id}', [HotspotController::class, 'editUser']);
+
+//user profile
+    // get user profile
+    Route::get('/profiles', [HotspotController::class, 'getAllProfiles']);
+
+    // post user profile
+    Route::post('/profiles', [HotspotController::class, 'addProfile']);
 });
 

@@ -72,10 +72,10 @@ class HotspotController extends Controller
         // Create "where" Query object for RouterOS
         $query =
             (new Query('/ip/hotspot/user/add'))
-            ->equal('name', 'trial')
-            ->equal('password', 'trial')
-            ->equal('profile', '1 Jam')
-            ->equal('comment', 'Trial User');
+            ->equal('name', $request->name)
+            ->equal('password', $request->password)
+            ->equal('profile', $request->profile)
+            ->equal('comment', $request->comment);
 
         // Send query and read response from RouterOS
         $response = $this->client->query($query)->read();
@@ -97,10 +97,28 @@ class HotspotController extends Controller
         return response()->json($response);
     }
 
+    // edit user hotspot by number
+    public function editUser($number, Request $request)
+    {
+        // Create "where" Query object for RouterOS
+        $query =
+            (new Query('/ip/hotspot/user/set'))
+            ->where('.id', $number)
+            ->equal('name', $request->name)
+            ->equal('password', $request->password)
+            ->equal('profile', $request->profile)
+            ->equal('comment', $request->comment);
+
+        // Send query and read response from RouterOS
+        $response = $this->client->query($query)->read();
+
+        return response()->json($response);
+    }
+
     // menu user profile begin
 
     // get all profile
-    public function getAllProfile()
+    public function getAllProfiles()
     {
         // Create "where" Query object for RouterOS
         $query =
@@ -118,11 +136,24 @@ class HotspotController extends Controller
         // Create "where" Query object for RouterOS
         $query =
             (new Query('/ip/hotspot/user/profile/add'))
-            ->equal('name', 'trial')
-            ->equal('rate-limit', '0')
-            ->equal('shared-users', '0')
-            ->equal('session-timeout', '0')
-            ->equal('idle-timeout', '0');
+            ->equal('name', $request->name)
+            ->equal('rate-limit', $request->rate_limit)
+            ->equal('shared-users', $request->shared_users)
+            ->equal('idle-timeout', 'none');
+
+        // Send query and read response from RouterOS
+        $response = $this->client->query($query)->read();
+
+        return response()->json($response);
+    }
+
+    // remove user profile by number
+    public function removeProfile($number)
+    {
+        // Create "where" Query object for RouterOS
+        $query =
+            (new Query('/ip/hotspot/user/profile/remove'))
+            ->where('.id', $number);
 
         // Send query and read response from RouterOS
         $response = $this->client->query($query)->read();
